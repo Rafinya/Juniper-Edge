@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curated Tour Packages | Juniper Edge Tours & Travel</title>
+    <meta name="description" content="Explore custom luxury tour packages curated by Juniper Edge. From majestic Masai Mara safaris to beautiful Diani beaches and futuristic Dubai getaways.">
+    
+    <link rel="canonical" href="https://juniperedge.co.ke/tours.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://juniperedge.co.ke/tours.html">
+    <meta property="og:title" content="Curated Tour Packages | Juniper Edge Tours & Travel">
+    <meta property="og:description" content="Explore custom luxury tour packages curated by Juniper Edge. From majestic Masai Mara safaris to beautiful Diani beaches and futuristic Dubai getaways.">
+    <meta property="og:image" content="https://juniperedge.co.ke/assets/logo.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://juniperedge.co.ke/tours.html">
+    <meta property="twitter:title" content="Curated Tour Packages | Juniper Edge Tours & Travel">
+    <meta property="twitter:description" content="Explore custom luxury tour packages curated by Juniper Edge. From majestic Masai Mara safaris to beautiful Diani beaches and futuristic Dubai getaways.">
+    <meta property="twitter:image" content="https://juniperedge.co.ke/assets/logo.jpeg">
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180x180.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <a href="mailto:juniperedgetoursandtravel@gmail.com"><i class="fa-solid fa-envelope"></i> juniperedgetoursandtravel@gmail.com</a>
+                <span class="separator">|</span>
+                <span><i class="fa-solid fa-clock"></i> We are open</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="tel:+254790932804"><i class="fa-solid fa-phone"></i> +254 790 932 804</a>
+                <span class="separator">|</span>
+                <div id="nav-auth-slot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar" id="main-navbar">
+        <div class="container">
+            <a href="index.html" class="logo-container">
+                <img src="assets/logo.jpeg" alt="Juniper Edge Logo" class="logo-img">
+                <div class="logo-text">
+                    JUNIPER EDGE
+                    <span>Tours & Travel</span>
+                </div>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Visa Services</a></li>
+                <li><a href="tours.html" class="nav-link active">Tours</a></li>
+                <li><a href="careers.html" class="nav-link">Careers</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="contact.html#wizard-box" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Start Assessment</a>
+                <div class="hamburger" id="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Title / Hero -->
+    <section class="careers-hero">
+        <div class="container">
+            <span class="section-tag" style="color: var(--color-accent);">Premium Destinations</span>
+            <h1 class="section-title" style="font-size: 3.5rem; margin-bottom: 1rem;">Curated Tour Packages & Adventures</h1>
+            <p class="section-desc" style="max-width: 700px; margin: 0 auto; color: var(--color-text-muted-light);">
+                Immerse yourself in handpicked luxury travel experiences. We manage flights, accommodation, visa clearances, and logistics so you can focus on finding your next escape.
+            </p>
+        </div>
+    </section>
+
+    <!-- Tour Explorer Section -->
+    <section class="section" style="padding-top: 3rem; padding-bottom: 4rem;">
+        <div class="container">
+
+            <!-- Category Filters -->
+            <div class="tour-filter-bar">
+                <button class="tour-filter-btn active" data-filter="all">All Packages</button>
+                <button class="tour-filter-btn" data-filter="safari">Safari & Wilderness</button>
+                <button class="tour-filter-btn" data-filter="coastal">Beach & Coastal</button>
+                <button class="tour-filter-btn" data-filter="intl">International Luxury</button>
+                <button class="tour-filter-btn" data-filter="group">Group & Adventure</button>
+            </div>
+            
+            <div class="tours-grid" id="explorer-tours-grid">
+                
+                <!-- Featured Upcoming Tour: Kanunga Falls -->
+                <div class="tour-card upcoming-highlight-card" id="kanunga-falls" data-filter="group">
+                    <div class="tour-image">
+                        <span class="tour-tag" style="background: linear-gradient(135deg, #cf2e2e 0%, #ff5252 100%); color: #fff; font-weight: 700;"><i class="fa-solid fa-fire" style="margin-right: 4px;"></i> Upcoming Adventure</span>
+                        <img src="assets/kanunga_falls.jpeg" alt="Kanunga Falls Waterfall Adventure">
+                    </div>
+                    <div class="tour-body">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                            <h3 style="margin-bottom: 0;">Kanunga Falls Waterfall Adventure</h3>
+                            <span style="background: rgba(207, 46, 46, 0.15); border: 1px solid var(--color-accent); color: var(--color-accent); font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 20px; font-weight: 600;"><i class="fa-solid fa-water"></i> Waterfall Expedition</span>
+                        </div>
+                        <p>Discover the breathtaking Kanunga Falls on an unforgettable full-day nature expedition. Trek through lush green forest trails, swim in the crystal-clear natural pools, enjoy scenic photography at the cascading waterfall, team bonding, and a delicious outdoor barbecue lunch.</p>
+                        
+                        <!-- Collapsible Itinerary -->
+                        <button class="itinerary-toggle-btn" type="button">View Itinerary <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="itinerary-container">
+                            <div class="itinerary-timeline">
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">1</span>
+                                    <div class="itinerary-day-title">06:00 AM: Assembly & Nairobi Departure</div>
+                                    <div class="itinerary-day-desc">Meet at the central Nairobi pickup point. Safety briefing, introductions, and early morning departure onboard our comfortable tour vehicle with music and refreshments.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">2</span>
+                                    <div class="itinerary-day-title">08:30 AM: Arrival & Forest Trail Hike</div>
+                                    <div class="itinerary-day-desc">Arrive at Kanunga Falls trailhead. Begin the guided forest hike through scenic greenery, indigenous trees, and bird-watching spots along the river path.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">3</span>
+                                    <div class="itinerary-day-title">10:30 AM: Waterfall Exploration & Swimming</div>
+                                    <div class="itinerary-day-desc">Reach the majestic Kanunga Falls. Enjoy the stunning cascade views, take epic photos, and swim in the refreshing natural rock pools beneath the falls.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">4</span>
+                                    <div class="itinerary-day-title">01:00 PM: Outdoor Barbecue Lunch & Team Fun</div>
+                                    <div class="itinerary-day-desc">Feast on a delicious barbecue spread with grilled meats, fresh sides, and drinks. Engage in fun group games, networking, and relaxation by the river.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">5</span>
+                                    <div class="itinerary-day-title">04:00 PM: Return Journey to Nairobi</div>
+                                    <div class="itinerary-day-desc">Pack up and begin the scenic drive back to Nairobi, arriving in the CBD by 06:30 PM with unforgettable memories and photos.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-footer" style="justify-content: flex-end; align-items: center;">
+                            <a href="contact.html#office-panel" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Book Inquiry</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour 1: Masai Mara -->
+                <div class="tour-card" data-filter="safari">
+                    <div class="tour-image">
+                        <span class="tour-tag">Wilderness Safari</span>
+                        <img src="assets/safari.png" alt="Masai Mara Safari Tour">
+                    </div>
+                    <div class="tour-body">
+                        <h3>Majestic Masai Mara Safari</h3>
+                        <p>Experience Africa's ultimate savanna. Includes open-top luxury 4x4 cruiser game drives, 5-star tented camp residency, and gourmet bush dinners.</p>
+                        
+                        <!-- Collapsible Itinerary -->
+                        <button class="itinerary-toggle-btn" type="button">View Itinerary <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="itinerary-container">
+                            <div class="itinerary-timeline">
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">1</span>
+                                    <div class="itinerary-day-title">Day 1: Nairobi to Masai Mara</div>
+                                    <div class="itinerary-day-desc">Morning departure from Nairobi. Scenic drive down the Great Rift Valley. Afternoon game drive followed by a campfire welcome dinner at the luxury camp.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">2</span>
+                                    <div class="itinerary-day-title">Day 2: Full-Day Savanna Game Drive</div>
+                                    <div class="itinerary-day-desc">Early breakfast followed by a full-day search for the Big Five. Enjoy a premium picnic lunch under an acacia tree in the heart of the reserve.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">3</span>
+                                    <div class="itinerary-day-title">Day 3: Balloon Safari & Departure</div>
+                                    <div class="itinerary-day-desc">Optional sunrise hot air balloon flight. Hearty bush breakfast and mid-morning check-out. Drive back to Nairobi, arriving in the evening.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-footer" style="justify-content: flex-end;">
+                            <a href="contact.html#office-panel" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Book Inquiry</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour 2: Diani Beach -->
+                <div class="tour-card" data-filter="coastal">
+                    <div class="tour-image">
+                        <span class="tour-tag">Coastal Getaway</span>
+                        <img src="assets/diani.png" alt="Diani Beach Coastal Holiday">
+                    </div>
+                    <div class="tour-body">
+                        <h3>Pristine Diani Beach Holiday</h3>
+                        <p>Relax on soft white sand. Package features oceanview hotel rooms, flight tickets, marine park boat tours, and premium seafood cuisines.</p>
+                        
+                        <!-- Collapsible Itinerary -->
+                        <button class="itinerary-toggle-btn" type="button">View Itinerary <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="itinerary-container">
+                            <div class="itinerary-timeline">
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">1</span>
+                                    <div class="itinerary-day-title">Day 1: Flight & Coastal Welcome</div>
+                                    <div class="itinerary-day-desc">45-minute flight from Wilson Airport to Ukunda. Private transfer to the resort. Enjoy a sunset cocktail walk on the white sandy beach.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">2</span>
+                                    <div class="itinerary-day-title">Day 2: Marine Park Dhow Cruise</div>
+                                    <div class="itinerary-day-desc">Board a traditional dhow to Kisite-Mpunguti Marine Park. Snorkel with dolphins, followed by a Swahili seafood lunch on Wasini Island.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">3</span>
+                                    <div class="itinerary-day-title">Day 3: Water Sports & Spa Day</div>
+                                    <div class="itinerary-day-desc">Morning paddleboarding or jet-skiing. Spend the afternoon pampering yourself at the resort's award-winning spa before departure.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-footer" style="justify-content: flex-end;">
+                            <a href="contact.html#office-panel" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Book Inquiry</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour 3: Dubai Sky -->
+                <div class="tour-card" data-filter="intl">
+                    <div class="tour-image">
+                        <span class="tour-tag">International Luxury</span>
+                        <img src="assets/dubai.png" alt="Dubai Sunset City Tour">
+                    </div>
+                    <div class="tour-body">
+                        <h3>Dubai Sunset & City Lights</h3>
+                        <p>Explore the city of gold. Highlights include Burj Khalifa tickets, desert sand safaris with BBQ dinner, yacht cruises, and flight bookings.</p>
+                        
+                        <!-- Collapsible Itinerary -->
+                        <button class="itinerary-toggle-btn" type="button">View Itinerary <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="itinerary-container">
+                            <div class="itinerary-timeline">
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">1</span>
+                                    <div class="itinerary-day-title">Day 1: Arrival & Marina Yacht Cruise</div>
+                                    <div class="itinerary-day-desc">Flight arrival at DXB. Private luxury transfer to your hotel. Evening private yacht cruise around Dubai Marina with buffet dinner.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">2</span>
+                                    <div class="itinerary-day-title">Day 2: Burj Khalifa & Desert Safari</div>
+                                    <div class="itinerary-day-desc">Morning visit to the Burj Khalifa 124th floor. Afternoon 4x4 desert dune bashing safari, camel rides, belly dancing, and BBQ dinner.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">3</span>
+                                    <div class="itinerary-day-title">Day 3: City Tour & Gold Souk</div>
+                                    <div class="itinerary-day-desc">Guided tour of Old Dubai, crossing the Creek in an Abra boat. Shop at the Gold and Spice Souks followed by departure transfer.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-footer" style="justify-content: flex-end;">
+                            <a href="contact.html#office-panel" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Book Inquiry</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour 4: Mombasa -->
+                <div class="tour-card" data-filter="coastal">
+                    <div class="tour-image">
+                        <span class="tour-tag">Coastal Heritage</span>
+                        <img src="assets/mombasa_tour.png" alt="Mombasa Coastal Tour">
+                    </div>
+                    <div class="tour-body">
+                        <h3>Mombasa Coastal Holiday</h3>
+                        <p>Immerse yourself in rich Swahili culture. Includes visits to historic Fort Jesus, Old Town walks, luxury beach resort stays, and dhow dinner cruises.</p>
+                        
+                        <!-- Collapsible Itinerary -->
+                        <button class="itinerary-toggle-btn" type="button">View Itinerary <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="itinerary-container">
+                            <div class="itinerary-timeline">
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">1</span>
+                                    <div class="itinerary-day-title">Day 1: SGR Train & Fort Jesus</div>
+                                    <div class="itinerary-day-desc">Scenic train ride from Nairobi to Mombasa. Check-in at the beach resort. Afternoon guided tour of Fort Jesus and Old Town.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">2</span>
+                                    <div class="itinerary-day-title">Day 2: Tamarind Dhow Dinner Cruise</div>
+                                    <div class="itinerary-day-desc">Relaxing beach morning. In the evening, board the famous Tamarind Dhow for a sunset cruise with live band and seafood dinner.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">3</span>
+                                    <div class="itinerary-day-title">Day 3: Haller Park & Departure</div>
+                                    <div class="itinerary-day-desc">Visit Haller Park to feed giraffes and see giant tortoises. Mid-afternoon transfer to the SGR terminal for the return journey.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-footer" style="justify-content: flex-end;">
+                            <a href="contact.html#office-panel" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Book Inquiry</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour 5: Maldives -->
+                <div class="tour-card" data-filter="intl">
+                    <div class="tour-image">
+                        <span class="tour-tag">Tropical Escape</span>
+                        <img src="assets/maldives_tour.png" alt="Maldives Overwater Resort">
+                    </div>
+                    <div class="tour-body">
+                        <h3>Bespoke Maldives Luxury Escape</h3>
+                        <p>Escape to private water villas. Package features island transfers, premium all-inclusive resort dining, private beach dinners, and marine snorkeling excursions.</p>
+                        
+                        <!-- Collapsible Itinerary -->
+                        <button class="itinerary-toggle-btn" type="button">View Itinerary <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="itinerary-container">
+                            <div class="itinerary-timeline">
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">1</span>
+                                    <div class="itinerary-day-title">Day 1: Speedboat & Overwater Villa</div>
+                                    <div class="itinerary-day-desc">Arrival at Male Airport. Speedboat transfer to your private island resort. Check-in at your overwater villa with direct ocean access.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">2</span>
+                                    <div class="itinerary-day-title">Day 2: Sandbank Picnic & Dolphins</div>
+                                    <div class="itinerary-day-desc">Excursion to a private sandbank for a picnic and snorkeling. In the evening, embark on a sunset cruise to spot wild dolphins.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">3</span>
+                                    <div class="itinerary-day-title">Day 3: Private Beach Candlelit Dinner</div>
+                                    <div class="itinerary-day-desc">Enjoy water sports (kayaking, jet-skiing). In the evening, savour a private 5-course candlelit seafood dinner directly on the beach.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-footer" style="justify-content: flex-end;">
+                            <a href="contact.html#office-panel" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Book Inquiry</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour 6: Hiking Trips -->
+                <div class="tour-card" data-filter="group">
+                    <div class="tour-image">
+                        <span class="tour-tag">1-Day Hiking</span>
+                        <img src="assets/hiking_poster.jpeg" alt="Hiking Poster Adventure">
+                    </div>
+                    <div class="tour-body">
+                        <h3>Scenic Day Hikes (Naivasha, Ngong Hills)</h3>
+                        <p>Conquer scenic trails. Features professional guides, round-trip transport from Nairobi, conservation park fees, first-aid support, and snack packs.</p>
+                        
+                        <!-- Collapsible Itinerary -->
+                        <button class="itinerary-toggle-btn" type="button">View Itinerary <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="itinerary-container">
+                            <div class="itinerary-timeline">
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">1</span>
+                                    <div class="itinerary-day-title">06:00 AM: Departure from Nairobi</div>
+                                    <div class="itinerary-day-desc">Meet at the central pickup point in Nairobi. Board the tour bus and depart for the trailhead (e.g. Mt. Longonot or Ngong Hills).</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">2</span>
+                                    <div class="itinerary-day-title">08:30 AM - 01:30 PM: The Hike & Summit</div>
+                                    <div class="itinerary-day-desc">Safety briefing. Guided ascent with scenic photo stops. Summit photo session and light snacks while enjoying the Rift Valley views.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">3</span>
+                                    <div class="itinerary-day-title">02:30 PM: Lunch & Return</div>
+                                    <div class="itinerary-day-desc">Descent to the base. Enjoy a hearty hot buffet lunch at a nearby hotel/camp. Depart back to Nairobi, arriving by 06:30 PM.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-footer" style="justify-content: flex-end;">
+                            <a href="contact.html#office-panel" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Book Inquiry</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour 7: Camping -->
+                <div class="tour-card" data-filter="group">
+                    <div class="tour-image">
+                        <span class="tour-tag">Outdoor Camping</span>
+                        <img src="assets/camping_poster.png" alt="Camping Retreat Poster">
+                    </div>
+                    <div class="tour-body">
+                        <h3>Serene Wilderness Camping Retreat</h3>
+                        <p>Relax under the stars. Includes pitch tent set-ups, bedding, bonfire dinners, interactive games, and professional site coordination.</p>
+                        
+                        <!-- Collapsible Itinerary -->
+                        <button class="itinerary-toggle-btn" type="button">View Itinerary <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="itinerary-container">
+                            <div class="itinerary-timeline">
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">1</span>
+                                    <div class="itinerary-day-title">Day 1: Pitch Tent & Bonfire BBQ</div>
+                                    <div class="itinerary-day-desc">Afternoon arrival at the campsite. Guided tent setup and ice-breakers. Evening bonfire, barbecued dinner, music, and stargazing.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">2</span>
+                                    <div class="itinerary-day-title">Day 2: Sunrise Hike & Camp Break</div>
+                                    <div class="itinerary-day-desc">Sunrise tea/coffee followed by a short nature walk. Full camp breakfast, team building games, and mid-day check-out for return.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-footer" style="justify-content: flex-end;">
+                            <a href="contact.html#office-panel" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Book Inquiry</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour 8: Team Building -->
+                <div class="tour-card" data-filter="group">
+                    <div class="tour-image">
+                        <span class="tour-tag">Corporate Events</span>
+                        <img src="assets/team_building_poster.png" alt="Corporate Team Building Poster">
+                    </div>
+                    <div class="tour-body">
+                        <h3>Corporate Team Building & Events</h3>
+                        <p>Custom team dynamics challenges, professional facilitators, custom t-shirts, branding banners, trust building games, and full catering.</p>
+                        
+                        <!-- Collapsible Itinerary -->
+                        <button class="itinerary-toggle-btn" type="button">View Itinerary <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="itinerary-container">
+                            <div class="itinerary-timeline">
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">1</span>
+                                    <div class="itinerary-day-title">08:00 AM - 10:00 AM: Icebreakers & Trust</div>
+                                    <div class="itinerary-day-desc">Welcome tea/coffee. Group division, team name creation, and high-energy warm-up activities to break the ice.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">2</span>
+                                    <div class="itinerary-day-title">10:30 AM - 01:00 PM: Strategy & Problem Solving</div>
+                                    <div class="itinerary-day-desc">Low-rope course activities, collaborative construction challenges, and communication-heavy strategic games.</div>
+                                </div>
+                                <div class="itinerary-day">
+                                    <span class="itinerary-day-num">3</span>
+                                    <div class="itinerary-day-title">02:00 PM - 04:30 PM: Championship & Awards</div>
+                                    <div class="itinerary-day-desc">Lunch buffet. High-energy final obstacle course competition, reflection session, and awarding of trophies/medals.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-footer" style="justify-content: flex-end;">
+                            <a href="contact.html#office-panel" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Book Inquiry</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo-container" style="color: #fff;">
+                        <img src="assets/logo.jpeg" alt="Juniper Edge Logo" class="logo-img">
+                        <div class="logo-text">
+                            JUNIPER EDGE
+                            <span>Tours & Travel</span>
+                        </div>
+                    </a>
+                    <p>Premium, digital-first travel and immigration consultancy helping clients navigate worldwide careers, student pathways, and bespoke leisure journeys.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Visa Services</a></li>
+                        <li><a href="tours.html">Tours & Travel</a></li>
+                        <li><a href="careers.html">Careers Placements</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Support & Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html#office-panel">Contact Us</a></li>
+                        <li><a href="contact.html#wizard-box">Visa Assessment</a></li>
+                        <li><a href="tel:+254790932804"><i class="fa-solid fa-phone" style="margin-right:0.5rem; color:var(--color-accent);"></i> +254 790 932 804</a></li>
+                        <li><a href="mailto:juniperedgetoursandtravel@gmail.com"><i class="fa-solid fa-envelope" style="margin-right:0.5rem; color:var(--color-accent);"></i> juniperedgetoursandtravel@gmail.com</a></li>
+                        <li><span style="font-size:0.85rem; color:var(--color-text-muted-light);"><i class="fa-solid fa-location-dot" style="margin-right:0.5rem; color:var(--color-accent);"></i> AmBank House, 17th Floor, Utalii Lane, Nairobi</span></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4 class="footer-title">Join Our Newsletter</h4>
+                    <p>Subscribe to receive updates on global migration policies, visa compliance alerts, and luxury tour discounts.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Juniper Edge Tours & Travel. All Rights Reserved. Designed for elegance & digital luxury.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/people/Juniper-Edge-Tours-and-Travel/61584419782770/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/juniperedgetoursandtravel/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/254790932804" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Main JS Interactivity -->
+    <script src="js/main.js"></script>
+</body>
+</html>

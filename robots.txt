@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /js/
+
+Sitemap: https://juniperedge.co.ke/sitemap.xml
