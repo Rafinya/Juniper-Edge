@@ -1710,29 +1710,46 @@ function injectSettingsModal(user) {
     setTimeout(() => modal.classList.add('active'), 50);
 }
 
-/* ==========================================
-   Upcoming Trips Manager & Floating Announcement
-   ========================================== */
-function initUpcomingTrips() {
-    // Array of upcoming trips configuration
-    const UPCOMING_TRIPS = [
+/* ==========================================================================
+   Upcoming Trips Manager & Global Floating Announcement
+   Configuration: To disable the popup site-wide, set `enabled: false` or
+   set `active: false`. The popup also automatically expires when `dueDate`
+   has passed.
+   ========================================================================== */
+window.JUNIPER_UPCOMING_TRIPS_CONFIG = {
+    enabled: true, // Master toggle: set to false to disable the announcement across all pages
+    trips: [
         {
-            id: 'kanunga-falls',
-            title: 'Kanunga Falls Waterfall Adventure',
-            badgeText: 'UPCOMING ADVENTURE',
-            dueDate: '2026-12-31T23:59:59+03:00',
-            displayDate: 'Coming Soon',
-            image: 'assets/kanunga_falls.jpeg',
-            targetUrl: 'tours.html#kanunga-falls',
-            active: true
+            id: 'namanga-road-trip',
+            heading: 'Upcoming Trip',
+            badgeText: 'Upcoming Trip',
+            title: 'Namanga Border Road Trip',
+            displayDate: 'Sat, 7th Nov 2026',
+            dueDate: '2026-11-07T23:59:59+03:00', // Auto-expires after this timestamp
+            price: 'Ksh 2,999',
+            deposit: 'Book with Ksh 1,000',
+            description: 'Join our scenic full-day road trip to the Kenya-Tanzania border! Experience Rift Valley highway drives, Namanga border tour, rooftop lounge, and authentic barbecue.',
+            ctaText: 'View Trip Details',
+            image: 'assets/namanga_trip.jpeg',
+            targetUrl: 'tours.html#namanga-road-trip',
+            active: true // Individual trip active toggle
         }
-    ];
+    ]
+};
+
+function initUpcomingTrips() {
+    const config = window.JUNIPER_UPCOMING_TRIPS_CONFIG;
+    if (!config || !config.enabled || !Array.isArray(config.trips) || config.trips.length === 0) {
+        const existingFloater = document.getElementById('upcoming-trip-floater-widget');
+        if (existingFloater) existingFloater.remove();
+        return;
+    }
 
     const now = new Date();
-    // Filter active upcoming trips whose due date has not passed yet
-    const activeTrips = UPCOMING_TRIPS.filter(trip => trip.active && new Date(trip.dueDate) >= now);
+    // Filter trips that are marked active and whose due date has not passed
+    const activeTrips = config.trips.filter(trip => trip.active && new Date(trip.dueDate) >= now);
 
-    // If no upcoming trips are active/valid, remove any existing floater and return
+    // If no active trips remain, remove any existing floater
     if (activeTrips.length === 0) {
         const existingFloater = document.getElementById('upcoming-trip-floater-widget');
         if (existingFloater) existingFloater.remove();
@@ -1740,45 +1757,74 @@ function initUpcomingTrips() {
     }
 
     const currentTrip = activeTrips[0];
+    const dismissStorageKey = `juniper_dismiss_trip_${currentTrip.id}`;
 
-    // Check if dismissed for current session
-    if (sessionStorage.getItem(`dismiss_trip_${currentTrip.id}`)) {
-        // Still handle card highlight if user navigated directly with hash
+    // Helper for safe sessionStorage checking (SSR and privacy-mode safe)
+    const isDismissed = () => {
+        try {
+            if (typeof window !== 'undefined' && window.sessionStorage) {
+                return sessionStorage.getItem(dismissStorageKey) === 'true';
+            }
+        } catch (e) {
+            // Storage access restricted; proceed without persistence
+        }
+        return false;
+    };
+
+    const setDismissed = () => {
+        try {
+            if (typeof window !== 'undefined' && window.sessionStorage) {
+                sessionStorage.setItem(dismissStorageKey, 'true');
+            }
+        } catch (e) {
+            // Storage access restricted
+        }
+    };
+
+    // If previously dismissed during this browser session, do not render popup
+    if (isDismissed()) {
         handleTourCardHighlight();
+        initPosterLightbox();
         return;
     }
 
-    // Inject floater widget if not present
+    // Inject floater widget if not already in DOM
     let floater = document.getElementById('upcoming-trip-floater-widget');
     if (!floater) {
         floater = document.createElement('div');
         floater.id = 'upcoming-trip-floater-widget';
         floater.className = 'upcoming-trip-floater';
+        floater.setAttribute('role', 'region');
+        floater.setAttribute('aria-label', `${currentTrip.heading}: ${currentTrip.title}`);
         document.body.appendChild(floater);
     }
 
     floater.innerHTML = `
         <div class="floater-header">
-            <span class="floater-badge"><i class="fa-solid fa-fire"></i> ${currentTrip.badgeText}</span>
-            <button type="button" class="floater-close-btn" id="close-upcoming-floater" title="Dismiss announcement">&times;</button>
+            <span class="floater-badge"><i class="fa-solid fa-bullhorn"></i> ${currentTrip.badgeText || 'Upcoming Trip'}</span>
+            <button type="button" class="floater-close-btn" id="close-upcoming-floater" aria-label="Dismiss upcoming trip announcement" title="Dismiss announcement">&times;</button>
         </div>
-        <a href="${currentTrip.targetUrl}" class="floater-body" id="floater-body-link">
-            <div class="floater-img-wrapper">
-                <img src="${currentTrip.image}" alt="${currentTrip.title}">
+        <div class="floater-body" id="floater-body-link" role="link" tabindex="0" title="Click to view trip details">
+            <div class="floater-img-wrapper" id="floater-thumbnail-wrapper" title="Click to view full poster">
+                <img src="${currentTrip.image}" alt="${currentTrip.title} Poster" loading="lazy">
             </div>
             <div class="floater-info">
                 <h4 class="floater-title">${currentTrip.title}</h4>
-                <div class="floater-date"><i class="fa-solid fa-calendar-day"></i> ${currentTrip.displayDate}</div>
-                <div class="floater-timer" id="floater-timer-countdown">
+                <p class="floater-desc">${currentTrip.description}</p>
+                <div class="floater-meta">
+                    <span class="floater-date"><i class="fa-solid fa-calendar-day"></i> ${currentTrip.displayDate}</span>
+                    <span class="floater-price">${currentTrip.price}</span>
+                </div>
+                <div class="floater-timer" id="floater-timer-countdown" aria-label="Countdown to event">
                     <div class="timer-box" id="timer-days">00<span>Days</span></div>
                     <div class="timer-box" id="timer-hours">00<span>Hrs</span></div>
                     <div class="timer-box" id="timer-mins">00<span>Min</span></div>
                     <div class="timer-box" id="timer-secs">00<span>Sec</span></div>
                 </div>
             </div>
-        </a>
+        </div>
         <a href="${currentTrip.targetUrl}" class="floater-action-btn" id="floater-action-btn">
-            View Poster & Book Now <i class="fa-solid fa-arrow-right"></i>
+            <span>${currentTrip.ctaText || 'View Trip Details'}</span> <i class="fa-solid fa-arrow-right"></i>
         </a>
     `;
 
@@ -1810,37 +1856,127 @@ function initUpcomingTrips() {
     };
 
     updateCountdown();
-    setInterval(updateCountdown, 1000);
+    const timerInterval = setInterval(updateCountdown, 1000);
 
-    // Close button handler
+    // Close Button Event Handler
     const closeBtn = document.getElementById('close-upcoming-floater');
     if (closeBtn) {
         closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
-            floater.style.opacity = '0';
-            floater.style.transform = 'translateY(30px)';
-            sessionStorage.setItem(`dismiss_trip_${currentTrip.id}`, 'true');
-            setTimeout(() => floater.remove(), 300);
+            clearInterval(timerInterval);
+            floater.classList.add('dismissing');
+            setDismissed();
+            setTimeout(() => {
+                if (floater.parentNode) floater.remove();
+            }, 300);
         });
     }
 
-    // Click handler for floater link (smooth scroll if already on tours.html)
-    const floaterLinks = [document.getElementById('floater-body-link'), document.getElementById('floater-action-btn')];
-    floaterLinks.forEach(link => {
-        if (!link) return;
-        link.addEventListener('click', (e) => {
-            const isToursPage = window.location.pathname.endsWith('tours.html');
-            if (isToursPage) {
+    // Navigation Handler (smooth scroll if already on tours.html, else regular navigation)
+    const navigateToTrip = (e) => {
+        const isToursPage = window.location.pathname.endsWith('tours.html') || window.location.pathname.endsWith('/tours');
+        if (isToursPage) {
+            e.preventDefault();
+            history.pushState(null, null, `#${currentTrip.id}`);
+            scrollToAndHighlightCard(currentTrip.id);
+        } else {
+            // Allow default link navigation to tours.html#namanga-road-trip
+            window.location.href = currentTrip.targetUrl;
+        }
+    };
+
+    const actionBtn = document.getElementById('floater-action-btn');
+    if (actionBtn) {
+        actionBtn.addEventListener('click', navigateToTrip);
+    }
+
+    const bodyLink = document.getElementById('floater-body-link');
+    if (bodyLink) {
+        bodyLink.addEventListener('click', (e) => {
+            // If user specifically clicked the image thumbnail, open high-res lightbox
+            if (e.target.closest('#floater-thumbnail-wrapper')) {
                 e.preventDefault();
-                history.pushState(null, null, `#${currentTrip.id}`);
-                scrollToAndHighlightCard(currentTrip.id);
+                e.stopPropagation();
+                openPosterLightbox(currentTrip.image, `${currentTrip.title} - Official Poster`);
+                return;
+            }
+            navigateToTrip(e);
+        });
+
+        bodyLink.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                navigateToTrip(e);
             }
         });
-    });
+    }
 
     handleTourCardHighlight();
+    initPosterLightbox();
 }
 
+/* ==========================================
+   Poster Lightbox Modal Viewer
+   ========================================== */
+function initPosterLightbox() {
+    // Check for images with poster viewing capability
+    const namangaPoster = document.querySelector('#namanga-road-trip .tour-image img');
+    if (namangaPoster) {
+        namangaPoster.addEventListener('click', () => {
+            openPosterLightbox(namangaPoster.getAttribute('src'), 'Namanga Road Trip - Official Poster');
+        });
+    }
+}
+
+function openPosterLightbox(imageSrc, imageAlt) {
+    let lightbox = document.getElementById('poster-lightbox-modal');
+    if (!lightbox) {
+        lightbox = document.createElement('div');
+        lightbox.id = 'poster-lightbox-modal';
+        lightbox.className = 'poster-lightbox-modal';
+        lightbox.innerHTML = `
+            <div class="poster-lightbox-content" role="dialog" aria-modal="true" aria-label="Poster Full View">
+                <button type="button" class="poster-lightbox-close" id="poster-lightbox-close" aria-label="Close poster view">&times;</button>
+                <img id="poster-lightbox-img" src="" alt="Full Resolution Poster">
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+
+        // Close on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.id === 'poster-lightbox-close') {
+                closePosterLightbox();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closePosterLightbox();
+            }
+        });
+    }
+
+    const img = lightbox.querySelector('#poster-lightbox-img');
+    if (img) {
+        img.src = imageSrc;
+        img.alt = imageAlt || 'Trip Poster';
+    }
+
+    lightbox.classList.add('active');
+}
+
+function closePosterLightbox() {
+    const lightbox = document.getElementById('poster-lightbox-modal');
+    if (lightbox) {
+        lightbox.classList.remove('active');
+    }
+}
+
+/* ==========================================
+   Tour Card Highlight & Smooth Scroll
+   ========================================== */
 function handleTourCardHighlight() {
     const hash = window.location.hash.replace('#', '');
     if (hash) {
@@ -1854,7 +1990,7 @@ function scrollToAndHighlightCard(cardId) {
     const card = document.getElementById(cardId);
     if (!card) return;
 
-    // Ensure filter allows card to be seen if hidden
+    // Ensure category filter allows card to be visible
     card.style.display = 'block';
 
     // Expand accordion itinerary if present
@@ -1862,6 +1998,7 @@ function scrollToAndHighlightCard(cardId) {
     const itineraryContainer = card.querySelector('.itinerary-container');
     if (toggleBtn && itineraryContainer && !toggleBtn.classList.contains('active')) {
         toggleBtn.classList.add('active');
+        toggleBtn.innerHTML = `Hide Itinerary <i class="fa-solid fa-chevron-up"></i>`;
         itineraryContainer.classList.add('active');
         itineraryContainer.style.maxHeight = itineraryContainer.scrollHeight + 'px';
     }
