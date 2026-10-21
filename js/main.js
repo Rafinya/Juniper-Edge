@@ -1,9 +1,13 @@
-/**
+﻿/**
  * JUNIPER EDGE TOURS & TRAVEL - Core JavaScript
  * Handles navbar, animations, job board filtering, visa wizard, and modals.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Load dynamic content from Sanity CMS (tours + jobs)
+    if (window.JuniperSanity) {
+        window.JuniperSanity.initSanityContent();
+    }
     initPageTransitionLoader(); // Initialize page transition loader
     initAuth(); // Initialize authentication system
     initNavbar();
@@ -1381,7 +1385,7 @@ function injectAuthModal() {
                         </div>
                         <div class="auth-input-group" style="margin-bottom: 1.5rem;">
                             <label for="signin-password" style="display:block; font-size: 0.8rem; color: var(--color-text-muted-light); margin-bottom: 0.5rem;">Password</label>
-                            <input type="password" id="signin-password" name="password" autocomplete="current-password" class="form-input" placeholder="••••••••" required style="padding: 0.75rem; width: 100%;">
+                            <input type="password" id="signin-password" name="password" autocomplete="current-password" class="form-input" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required style="padding: 0.75rem; width: 100%;">
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.8rem; cursor: pointer;">Sign In</button>
                     </form>
@@ -1639,7 +1643,7 @@ function injectSettingsModal(user) {
                     </div>
                     <div class="auth-input-group" style="margin-bottom: 1.5rem;">
                         <label for="settings-password" style="display:block; font-size: 0.8rem; color: var(--color-text-muted-light); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">New Password (leave blank to keep current)</label>
-                        <input type="password" id="settings-password" class="form-input" placeholder="••••••••" style="padding: 0.75rem; width: 100%;">
+                        <input type="password" id="settings-password" class="form-input" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" style="padding: 0.75rem; width: 100%;">
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.8rem; cursor: pointer;">Save Changes</button>
                 </form>
@@ -2011,5 +2015,6 @@ function scrollToAndHighlightCard(cardId) {
     void card.offsetWidth; // Reflow
     card.classList.add('highlight-pulse');
 }
+
 
 
