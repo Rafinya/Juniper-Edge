@@ -287,15 +287,36 @@ input, select, textarea, button {
 
 .btn-primary {
     background-color: var(--color-accent);
-    color: var(--color-primary-dark);
+    color: #ffffff;
     font-weight: 700;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 15px rgba(207, 46, 46, 0.25);
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+    cursor: pointer;
 }
-
 .btn-primary:hover {
-    background-color: var(--color-accent-light);
+    background-color: var(--color-accent-dark);
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: var(--glow-gold);
+    box-shadow: 0 8px 24px rgba(207, 46, 46, 0.35);
+}
+.btn-primary:focus-visible {
+    outline: 2px solid var(--color-accent-dark);
+    outline-offset: 3px;
+    color: #ffffff;
+}
+.btn-primary:active {
+    background-color: #821515;
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(207, 46, 46, 0.3);
+    color: #ffffff;
+}
+.btn-primary:disabled,
+.btn-primary.disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    color: #ffffff;
 }
 
 .btn-secondary {
@@ -306,8 +327,9 @@ input, select, textarea, button {
 .btn-secondary:hover {
     background-color: var(--color-accent);
     border-color: var(--color-accent);
-    color: var(--color-primary-dark);
+    color: #ffffff;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(207, 46, 46, 0.3);
 }
 
 .btn-juniper {
@@ -1137,7 +1159,7 @@ body.dark-mode .tour-card {
     top: 20px;
     right: 20px;
     background-color: var(--color-accent);
-    color: var(--color-primary-dark);
+    color: #ffffff;
     padding: 0.4rem 1rem;
     border-radius: 50px;
     font-size: 0.8rem;
@@ -4263,3 +4285,107 @@ body.dark-mode .dropdown-link-item hr {
 
 
 
+
+/* ==========================================================================
+   GLOBAL RED BUTTON ENHANCEMENTS (Professional Contrast & Hover Elevation)
+   Ensures pure white (#ffffff) text across all states with smooth 2px lift,
+   strengthened shadows, darker red hover, and full accessibility.
+   ========================================================================== */
+/* Universal Red Buttons Base */
+.btn-primary,
+button.btn-primary,
+a.btn-primary,
+.btn-job-connect,
+.newsletter-btn,
+.btn-apply-job,
+#next-step.btn-primary,
+#gate-signin-btn.btn-primary {
+    color: #ffffff !important;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn-primary *,
+button.btn-primary *,
+a.btn-primary *,
+.btn-job-connect *,
+.newsletter-btn * {
+    color: inherit !important;
+}
+/* Red Button Hover State: Smooth Darker Red, 2px upward lift, enhanced shadow */
+.btn-primary:hover,
+button.btn-primary:hover,
+a.btn-primary:hover,
+.btn-job-connect:hover,
+.newsletter-btn:hover,
+.btn-apply-job:hover,
+#next-step.btn-primary:hover,
+#gate-signin-btn.btn-primary:hover {
+    background-color: var(--color-accent-dark) !important;
+    border-color: var(--color-accent-dark) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(207, 46, 46, 0.35) !important;
+    cursor: pointer;
+}
+/* Red Button Focus State: White text with accessible focus outline */
+.btn-primary:focus-visible,
+button.btn-primary:focus-visible,
+a.btn-primary:focus-visible,
+.btn-job-connect:focus-visible,
+.newsletter-btn:focus-visible,
+.btn-apply-job:focus-visible,
+#next-step.btn-primary:focus-visible,
+#gate-signin-btn.btn-primary:focus-visible {
+    color: #ffffff !important;
+    outline: 2px solid var(--color-accent-dark) !important;
+    outline-offset: 3px !important;
+}
+/* Red Button Active State: White text with subtle pressed effect */
+.btn-primary:active,
+button.btn-primary:active,
+a.btn-primary:active,
+.btn-job-connect:active,
+.newsletter-btn:active,
+.btn-apply-job:active,
+#next-step.btn-primary:active,
+#gate-signin-btn.btn-primary:active {
+    background-color: #821515 !important;
+    border-color: #821515 !important;
+    color: #ffffff !important;
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(207, 46, 46, 0.3) !important;
+}
+/* Red Button Disabled State */
+.btn-primary:disabled,
+.btn-primary.disabled,
+button.btn-primary:disabled {
+    opacity: 0.65 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
+}
+/* Interactive Filter Badges with Red Background when Active/Hovered */
+.continent-btn.active,
+.continent-btn:hover {
+    color: #ffffff !important;
+}
+.continent-btn:hover {
+    background-color: var(--color-accent-dark) !important;
+    border-color: var(--color-accent-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(207, 46, 46, 0.3) !important;
+}
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    .btn-primary,
+    button.btn-primary,
+    a.btn-primary,
+    .btn-job-connect,
+    .newsletter-btn,
+    .btn-secondary,
+    .continent-btn {
+        transform: none !important;
+        transition: none !important;
+    }
+}
